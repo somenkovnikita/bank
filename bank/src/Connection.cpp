@@ -28,7 +28,7 @@ bool UnsafeConnection::create(const Endpoint &endpoint) {
 }
 
 bool UnsafeConnection::write(const char *data, size_t size) {
-    return ::write(socket, data, size) != -1;
+    return ::write(socket, data, size) == -1;
 }
 
 bool UnsafeConnection::read(char *data, size_t &size) {
@@ -40,5 +40,5 @@ bool UnsafeConnection::read(char *data, size_t &size) {
 }
 
 bool UnsafeConnection::close() {
-    return ::close(socket) != 0;
+    return ::close(socket) == 0;
 }
